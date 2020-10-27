@@ -244,12 +244,10 @@ To migrate the `ContosoAutoDb` database from SQL 2008 R2 to SQL MI, DMS will use
     - **Source SQL Server instance name**: Enter the IP address of your SqlServer2008R2 VM, which you can find in the Environment Details sheet provided to you for this workshop. For example, `52.151.19.148`.
     - **Authentication type**: Select SQL Authentication.
     - **Username**: Enter **WorkshopUser**.
-    - **Password**: Enter **Password.1!!**.
+    - **Password**: Enter **Password.1234567890**.
     - **Connection properties**: Check both Encrypt connection and Trust server certificate.
 
     ![The Migration Wizard Select source blade is displayed, with the values specified above entered into the appropriate fields.](media/dms-migration-wizard-select-source.png "Migration Wizard Select source")
-
-1. Select **Save**.
 
 1. On the Migration Wizard **Select target** blade, enter the following:
 
