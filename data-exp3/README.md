@@ -56,15 +56,19 @@ In this task, you will use the Microsoft [Data Migration Assistant](https://docs
 
 > DMA helps you upgrade to a modern data platform by detecting compatibility issues that can impact database functionality in your new version of SQL Server or Azure SQL Database. DMA recommends performance and reliability improvements for your target environment and allows you to move your schema, data, and uncontained objects from your source server to your target server.
 
-1. Launch the Microsoft Data Migration Assistant from the Windows Start menu within your lab environment.
+1. Remote to **SQL Server** using the credentials provided in the **Environmnet Details** tab.
+
+    ![Environment Details](media/env_details.png)
+
+2. Launch the Microsoft Data Migration Assistant from the Windows Start menu within your lab environment.
 
    ![The Microsoft Data Migration Assistant is highlighted in the Windows start menu.](media/windows-start-menu-dma.png "Data Migration Assistant")
 
-2. In the DMA dialog, select **+** from the left-hand menu to create a new project.
+3. In the DMA dialog, select **+** from the left-hand menu to create a new project.
 
    ![The new project icon is highlighted in DMA.](media/dma-new.png "New DMA project")
 
-3. In the New project pane, set the following:
+4. In the New project pane, set the following:
 
    - **Project type**: Select Assessment.
    - **Project name**: Enter ToAzureSqlDb.
@@ -74,13 +78,13 @@ In this task, you will use the Microsoft [Data Migration Assistant](https://docs
 
    ![New project settings for doing an assessment of a migration from SQL Server to Azure SQL Database.](media/dma-new-project-to-azure-sql-db.png "New project settings")
 
-4. Select **Create**.
+5. Select **Create**.
 
-5. On the **Options** screen, ensure **Check database compatibility** and **Check feature parity** are both checked, and then select **Next**.
+6. On the **Options** screen, ensure **Check database compatibility** and **Check feature parity** are both checked, and then select **Next**.
 
    ![Check database compatibility and check feature parity are checked on the Options screen.](media/dma-options.png "DMA options")
 
-6. On the **Sources** screen, enter the following into the **Connect to a server** dialog that appears on the right-hand side:
+7. On the **Sources** screen, enter the following into the **Connect to a server** dialog that appears on the right-hand side:
 
    - **Server name**: Enter the IP Address name your SqlServer2008R2 VM which you can retrieve from the Environment Details sheet. (e.g., 52.151.19.148)
    - **Authentication type**: Select **SQL Server Authentication**.
@@ -91,27 +95,27 @@ In this task, you will use the Microsoft [Data Migration Assistant](https://docs
 
    ![In the Connect to a server dialog, the values specified above are entered into the appropriate fields.](media/dma-connect-to-a-server.png "Connect to a server")
 
-7. Select **Connect**.
+8. Select **Connect**.
 
-8. On the **Add sources** dialog that appears next, check the box for **ContosoAutoDb** and select **Add**.
+9. On the **Add sources** dialog that appears next, check the box for **ContosoAutoDb** and select **Add**.
 
    ![The ContosoAutoDb box is checked on the Add sources dialog.](media/dma-add-sources.png "Add sources")
 
-9. Select **Start Assessment**.
+10. Select **Start Assessment**.
 
    ![Start assessment](media/dma-start-assessment-to-azure-sql-db.png "Start assessment")
 
-10. Review the assessment of ability to migrate to Azure SQL Database.
+11. Review the assessment of ability to migrate to Azure SQL Database.
 
     ![For a target platform of Azure SQL Database, feature parity shows two features which are not supported in Azure SQL Database. The Service broker feature is selected on the left and on the right Service Broker feature is not supported in Azure SQL Database is highlighted.](media/dma-feature-parity-service-broker-not-supported.png "Database feature parity")
 
     > The DMA assessment for a migrating the `ContosoAutoDb` database to a target platform of Azure SQL Database shows two features in use which are not supported in Azure SQL Database. These features, cross-database references and Service broker, will prevent ContosoAuto from being able to migrate to the Azure SQL Database PaaS offering without first making architectural changes to their application.
 
-11. With one PaaS offering ruled out due to feature parity, you will now perform a second assessment, this time for a migration to Azure SQL Database Managed Instance (SQL MI). To get started, select **+** on the left-hand menu in DMA to create another new project.
+12. With one PaaS offering ruled out due to feature parity, you will now perform a second assessment, this time for a migration to Azure SQL Database Managed Instance (SQL MI). To get started, select **+** on the left-hand menu in DMA to create another new project.
 
     ![The new project icon is highlighted in DMA.](media/dma-new.png "New DMA project")
 
-12. In the New project pane, set the following:
+13. In the New project pane, set the following:
 
     - **Project type**: Select Assessment.
     - **Project name**: Enter ToAzureSqlMi.
@@ -121,13 +125,13 @@ In this task, you will use the Microsoft [Data Migration Assistant](https://docs
 
     ![New project settings for doing an assessment of a migration from SQL Server to Azure SQL Database Managed Instance.](media/dma-new-project-to-azure-sql-mi.png "New project settings")
 
-13. Select **Create**.
+14. Select **Create**.
 
-14. On the **Options** screen, ensure **Check database compatibility** and **Check feature parity** are both checked, and then select **Next**.
+15. On the **Options** screen, ensure **Check database compatibility** and **Check feature parity** are both checked, and then select **Next**.
 
     ![Check database compatibility and check feature parity are checked on the Options screen.](media/dma-options.png "DMA options")
 
-15. On the **Sources** screen, enter the following into the **Connect to a server** dialog that appears on the right-hand side:
+16. On the **Sources** screen, enter the following into the **Connect to a server** dialog that appears on the right-hand side:
 
     - **Server name**: Enter the IP Address name your SqlServer2008R2 VM which you can retrieve from the Environment Details sheet. (e.g., 52.151.19.148)
     - **Authentication type**: Select **SQL Server Authentication**.
@@ -138,17 +142,17 @@ In this task, you will use the Microsoft [Data Migration Assistant](https://docs
 
     ![In the Connect to a server dialog, the values specified above are entered into the appropriate fields.](media/dma-connect-to-a-server.png "Connect to a server")
 
-16. Select **Connect**.
+17. Select **Connect**.
 
-17. On the **Add sources** dialog that appears next, check the box for **ContosoAutoDb** and select **Add**.
+18. On the **Add sources** dialog that appears next, check the box for **ContosoAutoDb** and select **Add**.
 
     ![The ContosoAutoDb box is checked on the Add sources dialog.](media/dma-add-sources.png "Add sources")
 
-18. Select **Start Assessment**.
+19. Select **Start Assessment**.
 
     ![Start assessment](media/dma-start-assessment-to-azure-sql-mi.png "Start assessment")
 
-19. Review the assessment of ability to migrate to Azure SQL Database Managed Instance.
+20. Review the assessment of ability to migrate to Azure SQL Database Managed Instance.
 
     ![For a target platform of Azure SQL Database Managed Instance, there are no feature parity issues found.](media/dma-feature-parity-azure-sql-mi-2.png "Database feature parity")
 
