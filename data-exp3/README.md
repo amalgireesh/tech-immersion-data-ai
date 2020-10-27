@@ -206,15 +206,29 @@ To migrate the `ContosoAutoDb` database from SQL 2008 R2 to SQL MI, DMS will use
 
 ![This solution diagram includes a virtual network containing SQL MI in a isolated subnet, along with a JumpBox VM and Database Migration Service in a management subnet. The MI Subnet displays both the primary managed instance, along with a read-only replica, which is accessed by reports from the web app. The web app connects to SQL MI via a subnet gateway and point-to-site VPN. The web app is published to App Services using Visual Studio 2019. An online data migration is conducted from the on-premises SQL Server to SQL MI using the Azure Database Migration Service, which reads backup files from an SMB network share.](./media/preferred-solution-architecture.png "Solution diagram")
 
-1. In the [Azure portal](https://portal.azure.com), navigate to the Azure Database Migration Service by selecting **Resource groups** from the left-hand navigation menu, select the **tech-immersion-XXXXX** resource group (where XXXXX is the unique identifier provided to you for this workshop), and then select the **tech-immersion-dms** Azure Database Migration Service in the list of resources.
+1. Navigate back to the **Jumphost** and click on Azure portal shortcut placed on the desktop of the Jumphost on the left of the screen. This will open up an Microsoft Edge Chromium Browser.
+
+1. On **Sign in to Microsoft Azure** tab, enter the following email/username and then click on **Next**. 
+   * **Email/Username**: <inject key="AzureAdUserEmail"></inject>
+
+1. Now enter the following password and click on **Sign in**.
+   * **Password**: <inject key="AzureAdUserPassword"></inject>
+
+1. If you see the pop-up **Stay Signed in?**, click No
+
+1. If you see the pop-up **You have free Azure Advisor recommendations!**, close the window to continue the lab.
+
+1. If a **Welcome to Microsoft Azure** popup window appears, click **Maybe Later** to skip the tour.
+
+1. Navigate to the Azure Database Migration Service by selecting **Resource groups** from the left-hand navigation menu, select the **tech-immersion-XXXXX** resource group (where XXXXX is the unique identifier provided to you for this workshop), and then select the **tech-immersion-dms** Azure Database Migration Service in the list of resources.
 
     ![The tech-immersion-dms Azure Database Migration Service is highlighted in the list of resources in the tech-immersion-XXXXX resource group.](media/resource-group-dms-resource.png "Resources")
 
-2. On the Azure Database Migration Service blade, select **+New Migration Project**.
+1. On the Azure Database Migration Service blade, select **+New Migration Project**.
 
     ![On the Azure Database Migration Service blade, +New Migration Project is highlighted in the toolbar.](media/dms-add-new-migration-project.png "Azure Database Migration Service New Project")
 
-3. On the New migration project blade, enter the following:
+1. On the New migration project blade, enter the following:
 
     - **Project name**: Enter OnPremToSqlMi.
     - **Source server type**: Select SQL Server.
@@ -223,9 +237,9 @@ To migrate the `ContosoAutoDb` database from SQL 2008 R2 to SQL MI, DMS will use
 
     ![The New migration project blade is displayed, with the values specified above entered into the appropriate fields.](media/dms-new-migration-project-blade.png "New migration project")
 
-4. Select **Create and run activity**.
+1. Select **Create and run activity**.
 
-5. On the Migration Wizard **Select source** blade, enter the following:
+1. On the Migration Wizard **Select source** blade, enter the following:
 
     - **Source SQL Server instance name**: Enter the IP address of your SqlServer2008R2 VM, which you can find in the Environment Details sheet provided to you for this workshop. For example, `52.151.19.148`.
     - **Authentication type**: Select SQL Authentication.
@@ -235,9 +249,9 @@ To migrate the `ContosoAutoDb` database from SQL 2008 R2 to SQL MI, DMS will use
 
     ![The Migration Wizard Select source blade is displayed, with the values specified above entered into the appropriate fields.](media/dms-migration-wizard-select-source.png "Migration Wizard Select source")
 
-6. Select **Save**.
+1. Select **Save**.
 
-7. On the Migration Wizard **Select target** blade, enter the following:
+1. On the Migration Wizard **Select target** blade, enter the following:
 
     - **Application ID**: Enter the `Application ID` value from the Environment Details sheet provided to you for this workshop.
     - **Key**: Enter the `Application Key` value from the Environment Details sheet provided to you for this workshop.
@@ -248,15 +262,15 @@ To migrate the `ContosoAutoDb` database from SQL 2008 R2 to SQL MI, DMS will use
 
     ![The Migration Wizard Select target blade is displayed, with the values specified above entered into the appropriate fields.](media/dms-migration-wizard-select-target.png "Migration Wizard Select target")
 
-8. Select **Save**.
+1. Select **Save**.
 
-9. On the Migration Wizard **Select databases** blade, select `ContosoAutoDb`.
+1. On the Migration Wizard **Select databases** blade, select `ContosoAutoDb`.
 
     ![The Migration Wizard Select databases blade is displayed, with the ContosoAutoDb database selected.](media/dms-migration-wizard-select-databases.png "Migration Wizard Select databases")
 
-10. Select **Save**.
+1. Select **Save**.
 
-11. On the Migration Wizard **Configure migration settings** blade, enter the following configuration:
+1. On the Migration Wizard **Configure migration settings** blade, enter the following configuration:
 
     - **Network share location**: Enter `\\SQLSERVER2008R2\dms-backups`. This is the path of the SMB network share created to store the database and log backups.
     - **Windows User Azure Database Migration Service impersonates to upload files to Azure Storage**: Enter `SQLSERVER2008R2\tiuser`
@@ -268,17 +282,17 @@ To migrate the `ContosoAutoDb` database from SQL 2008 R2 to SQL MI, DMS will use
 
     ![The Migration Wizard Configure migration settings blade is displayed, with the values specified above entered into the appropriate fields.](media/dms-migration-wizard-configure-migration-settings.png "Migration Wizard Configure migration settings")
 
-12. Select **Save** on the **Configure migration setting** blade.
+1. Select **Save** on the **Configure migration setting** blade.
 
-13. On the Migration Wizard **Summary** blade, enter the following:
+1. On the Migration Wizard **Summary** blade, enter the following:
 
     - **Activity name**: Enter ContosoAutoDbMigration.
 
     ![The Migration Wizard summary blade is displayed, ContosoAutoDbMigration is entered into the name field, and Validate my database(s) is selected in the Choose validation option blade, with all three validation options selected.](media/dms-migration-wizard-migration-summary.png "Migration Wizard Summary")
 
-14. Select **Run migration**.
+1. Select **Run migration**.
 
-15. Monitor the migration on the status screen that appears. Select the refresh icon in the toolbar to retrieve the latest status. Continue selecting **Refresh** every 5-10 seconds, until you see the status change to **Log files uploading**. When that status appears, move on to the next task.
+1. Monitor the migration on the status screen that appears. Select the refresh icon in the toolbar to retrieve the latest status. Continue selecting **Refresh** every 5-10 seconds, until you see the status change to **Log files uploading**. When that status appears, move on to the next task.
 
     ![In the migration monitoring window, a status of Log files uploading is highlighted.](media/dms-migration-wizard-status-log-files-uploading.png "Migration status")
 
