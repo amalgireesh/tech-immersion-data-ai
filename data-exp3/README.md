@@ -317,7 +317,7 @@ Since you performed the migration as an "online data migration," the migration w
    - **Server name**: Enter the IP address of your SqlServer2008R2 VM, which you can find in the Environment Details sheet provided.
    - **Authentication**: Select SQL Server Authentication.
    - **Login**: Enter **WorkshopUser**
-   - **Password**: Enter **Password.1!!**
+   - **Password**: Enter **Password.1234567890**
 
    ![The SSMS Connect to Server dialog is displayed with the values specified above entered into the dialog.](media/ssms-connect-to-sql-2008-r2.png "Connect to Server")
 
