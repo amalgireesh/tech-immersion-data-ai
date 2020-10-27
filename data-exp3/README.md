@@ -136,7 +136,7 @@ In this task, you will use the Microsoft [Data Migration Assistant](https://docs
     - **Server name**: Enter the IP Address name your SqlServer2008R2 VM which you can retrieve from the Environment Details sheet. (e.g., 52.151.19.148)
     - **Authentication type**: Select **SQL Server Authentication**.
     - **Username**: Enter **WorkshopUser**
-    - **Password**: Enter **Password.1!!**
+    - **Password**: Enter **Password.1234567890**
     - **Encrypt connection**: Check this box.
     - **Trust server certificate**: Check this box.
 
